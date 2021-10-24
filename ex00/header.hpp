@@ -30,6 +30,24 @@ T &max(T &arg1, T &arg2)
 	return arg2;
 }
 
+////Overloading for constants
+template <typename T>
+const T &min(const T &arg1, const T &arg2)
+{
+	if (arg1 < arg2)
+		return arg1;
+	return arg2;
+}
+
+template <typename T>
+const T &max(const T &arg1, const T &arg2)
+{
+	if (arg1 > arg2)
+		return arg1;
+	return arg2;
+}
+
+
 //class mClass
 //{
 //private:
