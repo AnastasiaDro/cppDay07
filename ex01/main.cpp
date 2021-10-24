@@ -4,6 +4,8 @@
 
 #include "iter.hpp"
 
+
+
 int main()
 {
 	char charArr[3] = {'a', 'b', 'c'};
@@ -19,4 +21,8 @@ int main()
 
 	iter(intArr, len, print);
 	iter(strs, len, print);
+
+//	mClass ex[3];
+//	iter(ex, i, print);
 }
+
