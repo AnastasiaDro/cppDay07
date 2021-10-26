@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD 98)
 
 #add_executable(Day07 ex01/main.cpp ex01/iter.hpp)
 
-add_executable(Day07 ex02/main.cpp ex02/Array.hpp)
+add_executable(Day07 ex02/myMain.cpp ex02/Array.hpp)

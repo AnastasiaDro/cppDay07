@@ -11,60 +11,60 @@ template <class T>
 class Array
 {
 private:
-	unsigned int num;
-	T *data;
+	unsigned int	num;
+	T				*data;
 public:
-	Array()
+	Array() : num(0), data(NULL) {}
+
+
+	Array(unsigned int n) : num(n), data (new T[num]) {}
+
+
+	~Array() { delete [] this->data;}
+
+
+	Array(const Array &orig) : num(orig.num), data(new T[orig.num])
 	{
-		num = 0;
-		data = NULL;
+		for (unsigned int i = 0; i < num; i++)
+			this->data[i] = orig.data[i];
 	}
 
-	Array(unsigned int n)
+	Array<T> &operator=(const Array &orig)
 	{
-		num = n;
-		data = new T[num];
-	}
-
-	~Array()
-	{
-		delete this->data;
-	}
-
-	Array(Array &orig)
-	{
-		*this = orig;
-	}
-
-	unsigned int size();
-
-
-	Array &operator=(const Array &orig)
-	{
+		this->num = orig.num;
 		if(this == &orig)
 			return *this;
-		delete this->data;
-		this->num = orig.num;
+		if(data)
+			delete[] data;
 		this->data = new T[num];
-		for (int i = 0; i < num; i++)
+		for (unsigned int i = 0; i < num; i++)
 			this->data[i] = orig.data[i];
 		return *this;
 	}
 
-	T& operator[](int index)
-	{
-		if(this->num != 0 && index < num)
-			return data[index];
+	T	&operator[](int index) {
+		unsigned int i;
+		i = static_cast<unsigned int>(index);
+		if(this->num != 0 && i < num)
+			return data[i];
 		else
 			throw std::exception();
 	}
 
+	T const &operator[](int index) const {
+		unsigned int i;
+		i = static_cast<unsigned int>(index);
+		if(this->num != 0 && i < num)
+			return data[i];
+		else
+			throw std::exception();
+	}
+
+	unsigned int size() const { return num; }
 };
 
-template<class T>
-unsigned int Array<T>::size() {
-		return num;
-}
+
+
 
 //testing class
 class mClass

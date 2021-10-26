@@ -27,8 +27,7 @@ int main()
 
 	std::cout << "\n-----MAKING AN ARRAY OF CLASS OBJECTS------" << std::endl;
 	Array<mClass> mClassArr(5);
-	for (int i = 0; i < mClassArr.size(); ++i) {
+	for (unsigned int i = 0; i < mClassArr.size(); ++i) {
 		std::cout << mClassArr[i].geti() << std::endl;
 	}
 }
-
