@@ -1,7 +1,7 @@
 NAME = ex02
 
 SRC = main.cpp
-HEAD = iter.hpp
+HEAD = Array.hpp
 
 OBJS = $(SRC:.cpp=.o)
 
